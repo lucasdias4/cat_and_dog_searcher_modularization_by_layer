@@ -17,4 +17,5 @@
     <dimen name="dimen_56">56dp</dimen>
     <dimen name="dimen_60">60dp</dimen>
     <dimen name="dimen_64">64dp</dimen>
+    <dimen name="dimen_128">128dp</dimen>
 </resources>
