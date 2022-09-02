@@ -1,4 +1,3 @@
 package com.lucasdias.api
 
-interface CatService {
-}
+interface CatService

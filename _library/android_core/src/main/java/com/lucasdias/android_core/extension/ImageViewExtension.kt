@@ -7,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.lucasdias.resource.R
-import com.lucasdias.resource.R.*
 
 fun ImageView.loadImage(
     url: String? = null,
