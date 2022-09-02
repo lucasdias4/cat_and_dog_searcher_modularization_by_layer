@@ -35,7 +35,6 @@ android {
 }
 
 dependencies {
-    implementation(project(Dependency.Module.core))
     implementation(project(Dependency.Module.api_model))
     implementation(project(Dependency.Module.data_core))
 
