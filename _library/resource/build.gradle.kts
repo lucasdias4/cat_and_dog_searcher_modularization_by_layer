@@ -35,5 +35,6 @@ android {
 }
 
 dependencies {
+    implementation(Dependency.UI.constraint_layout)
     implementation(Dependency.UI.material)
 }

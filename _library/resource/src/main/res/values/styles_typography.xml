@@ -109,4 +109,43 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="H3" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:letterSpacing">-0.5</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="H2" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="H1" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="D1" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">56sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:letterSpacing">-0.04</item>
+    </style>
+
+    <style name="A_1" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/shadows</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:letterSpacing">-0.06</item>
+    </style>
 </resources>
