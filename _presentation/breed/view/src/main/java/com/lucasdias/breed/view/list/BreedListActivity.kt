@@ -2,6 +2,7 @@ package com.lucasdias.breed.view.list
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasdias.android_core.extension.gone
 import com.lucasdias.android_core.extension.visible
@@ -34,6 +35,7 @@ class BreedListActivity : AppCompatActivity() {
         setContentView(binding.root)
         setUpRecyclerView()
         setUpObservers()
+        setUpErrorView()
     }
 
     override fun onResume() {
@@ -63,6 +65,13 @@ class BreedListActivity : AppCompatActivity() {
         )
     }
 
+    private fun setUpErrorView() = with(binding.errorView) {
+        button.setOnClickListener {
+            progressBar.visible()
+            getBreeds()
+        }
+    }
+
     private fun osRequestSuccess(list: List<UIBreed>) = with(binding) {
         val sortedList = list.sortedBy { it.name }
         adapter.update(sortedList)
@@ -82,14 +91,18 @@ class BreedListActivity : AppCompatActivity() {
     private fun osRequestLoading() = with(binding) {
         recyclerView.gone()
         loadingView.root.visible()
-        emptyView.root.gone()
-        errorView.root.gone()
+        if (emptyView.root.isVisible.not()) {
+            loadingView.root.visible()
+        } else {
+            errorView.progressBar.visible()
+        }
     }
 
     private fun osRequestError() = with(binding) {
         recyclerView.gone()
         loadingView.root.gone()
         emptyView.root.gone()
+        errorView.progressBar.gone()
         errorView.root.visible()
     }
 
