@@ -64,11 +64,12 @@ class BreedListActivity : AppCompatActivity() {
     }
 
     private fun osRequestSuccess(list: List<UIBreed>) = with(binding) {
+        val sortedList = list.sortedBy { it.name }
+        adapter.update(sortedList)
         recyclerView.visible()
         loadingView.root.gone()
         emptyView.root.gone()
         errorView.root.gone()
-        adapter.update(list)
     }
 
     private fun osRequestEmpty() = with(binding) {
