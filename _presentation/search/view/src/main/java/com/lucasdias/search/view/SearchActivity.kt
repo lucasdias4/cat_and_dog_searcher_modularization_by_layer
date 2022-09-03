@@ -10,10 +10,10 @@ import com.lucasdias.android_core.extension.setUp
 import com.lucasdias.android_core.extension.showError
 import com.lucasdias.android_core.extension.showSuccess
 import com.lucasdias.android_core.navigator.Navigator
-import com.lucasdias.common_model.UIRequestType
-import com.lucasdias.common_model.UIRequestType.CAT
-import com.lucasdias.common_model.UIRequestType.CAT_AND_DOG
-import com.lucasdias.common_model.UIRequestType.DOG
+import com.lucasdias.common_model.UIAnimalType
+import com.lucasdias.common_model.UIAnimalType.CAT
+import com.lucasdias.common_model.UIAnimalType.CAT_AND_DOG
+import com.lucasdias.common_model.UIAnimalType.DOG
 import com.lucasdias.core.timber.logWithTimber
 import com.lucasdias.search.view.databinding.ActivitySearchBinding
 import org.koin.android.ext.android.inject
@@ -21,7 +21,7 @@ import org.koin.android.ext.android.inject
 class SearchActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySearchBinding
-    private lateinit var requestType: UIRequestType
+    private lateinit var requestType: UIAnimalType
     private val navigator by inject<Navigator>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 
-    private fun getRequestTypeByDescription(description: String): UIRequestType {
+    private fun getRequestTypeByDescription(description: String): UIAnimalType {
         return when (description) {
             CAT.description -> CAT
             DOG.description -> DOG
@@ -64,7 +64,7 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 
-    private fun initiateSearch(searchText: String, requestType: UIRequestType) = with(binding) {
+    private fun initiateSearch(searchText: String, requestType: UIAnimalType) = with(binding) {
         emptySearchMessage.animateVisibleToGone()
         searchTextInputLayout.showSuccess()
         logWithTimber("searchText.isNotEmpty()")

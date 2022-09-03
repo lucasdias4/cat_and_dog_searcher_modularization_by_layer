@@ -35,4 +35,5 @@ android {
 }
 
 dependencies {
+    implementation(Dependency.Data.converter_gson)
 }

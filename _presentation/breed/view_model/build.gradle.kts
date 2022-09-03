@@ -1,3 +1,5 @@
+import com.lucasdias.buildSrc.Dependency
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -33,11 +35,13 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.5.0")
-    implementation("com.google.android.material:material:1.6.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(project(Dependency.Module.android_core))
+    implementation(project(Dependency.Module.domain))
+    implementation(Dependency.Core.appcompat)
+    implementation(Dependency.Core.coroutines_core)
+    implementation(Dependency.Core.core_ktx)
+    implementation(Dependency.Core.lifecycle_view_model)
+    implementation(Dependency.DI.koin)
+    implementation(Dependency.UI.material)
+    testImplementation(Dependency.Test.junit)
 }

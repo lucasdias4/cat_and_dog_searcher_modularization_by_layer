@@ -46,5 +46,4 @@ dependencies {
     implementation(Dependency.DI.koin)
     implementation(Dependency.UI.constraint_layout)
     implementation(Dependency.UI.material)
-    implementation(Dependency.UI.shimmer)
 }

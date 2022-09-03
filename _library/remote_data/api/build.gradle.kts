@@ -27,16 +27,12 @@ android {
             buildConfigField ("String", "DOG_API_URL", "\"https://api.thedogapi.com/\"")
             buildConfigField ("String", "CAT_API_KEY", "\"b1cc6a99-aed5-43a4-8ac0-838b022ed7b7\"")
             buildConfigField ("String", "DOG_API_KEY", "\"a3ee1cc2-3bb9-4a50-bbd9-1bffbf9b3494\"")
-            buildConfigField ("String", "CAT_IMAGE_URL", "\"https://cdn2.thecatapi.com/images/\"")
-            buildConfigField ("String", "DOG_IMAGE_URL", "\"https://cdn2.thedogapi.com/images/\"")
         }
         debug {
             buildConfigField ("String", "CAT_API_URL", "\"https://api.thecatapi.com/\"")
             buildConfigField ("String", "DOG_API_URL", "\"https://api.thedogapi.com/\"")
             buildConfigField ("String", "CAT_API_KEY", "\"b1cc6a99-aed5-43a4-8ac0-838b022ed7b7\"")
-            buildConfigField ("String", "DOG_API_KEY", "\"a3ee1cc2-3bb9-4a50-bbd9-1bffbf9b3494\"")
-            buildConfigField ("String", "CAT_IMAGE_URL", "\"https://cdn2.thecatapi.com/images/\"")
-            buildConfigField ("String", "DOG_IMAGE_URL", "\"https://cdn2.thedogapi.com/images/\"")        }
+            buildConfigField ("String", "DOG_API_KEY", "\"a3ee1cc2-3bb9-4a50-bbd9-1bffbf9b3494\"")        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

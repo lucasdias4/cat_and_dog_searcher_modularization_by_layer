@@ -75,6 +75,10 @@ object Dependency {
 
         const val api_model = ":_library:remote_data:model"
 
+        const val breed_view = ":_presentation:breed:view"
+
+        const val breed_view_model = ":_presentation:breed:view_model"
+
         const val core = ":_library:core"
 
         const val domain = ":_domain:domain"
