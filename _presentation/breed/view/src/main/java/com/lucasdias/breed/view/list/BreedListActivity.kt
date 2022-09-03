@@ -36,6 +36,7 @@ class BreedListActivity : AppCompatActivity() {
         setUpRecyclerView()
         setUpObservers()
         setUpErrorView()
+        setUpEmptyView()
     }
 
     override fun onResume() {
@@ -69,6 +70,12 @@ class BreedListActivity : AppCompatActivity() {
         button.setOnClickListener {
             progressBar.visible()
             getBreeds()
+        }
+    }
+
+    private fun setUpEmptyView() = with(binding.emptyView) {
+        button.setOnClickListener {
+            finish()
         }
     }
 

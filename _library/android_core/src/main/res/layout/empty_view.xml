@@ -10,12 +10,13 @@
         android:layout_width="@dimen/dimen_128"
         android:layout_height="@dimen/dimen_148"
         android:src="@drawable/cat_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/description"
         style="@style/P3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +24,24 @@
         android:paddingHorizontal="@dimen/dimen_40"
         android:text="@string/description_empty_view"
         android:textColor="@color/text_1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_success_without_content_view" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:background="@color/transparent"
+        android:paddingHorizontal="@dimen/dimen_60"
+        android:paddingVertical="@dimen/dimen_16"
+        android:text="@string/back_button"
+        android:textColor="@color/text_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
