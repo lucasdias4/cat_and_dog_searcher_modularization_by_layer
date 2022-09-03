@@ -16,7 +16,6 @@ class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
     private val navigator by inject<Navigator>()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
@@ -30,10 +29,10 @@ class SplashActivity : AppCompatActivity() {
 
     private fun startNextScreenWithDelay() {
         Handler(Looper.getMainLooper()).postDelayed({
-                navigator.navigateToSearch(
-                    activity = this,
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                )
+            navigator.navigateToSearch(
+                activity = this,
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            )
         }, DELAY_TIME)
     }
 }
