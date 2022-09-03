@@ -3,6 +3,7 @@ import com.lucasdias.buildSrc.Dependency
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
 }
 
 android {

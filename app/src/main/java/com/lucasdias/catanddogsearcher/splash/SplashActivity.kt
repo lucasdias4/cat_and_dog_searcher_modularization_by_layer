@@ -13,8 +13,8 @@ private const val DELAY_TIME = 3000L
 
 class SplashActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySplashBinding
     private val navigator by inject<Navigator>()
+    private lateinit var binding: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

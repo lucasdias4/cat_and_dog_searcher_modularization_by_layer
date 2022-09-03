@@ -20,9 +20,9 @@ import org.koin.android.ext.android.inject
 
 class SearchActivity : AppCompatActivity() {
 
+    private val navigator by inject<Navigator>()
     private lateinit var binding: ActivitySearchBinding
     private lateinit var requestType: UIAnimalType
-    private val navigator by inject<Navigator>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
