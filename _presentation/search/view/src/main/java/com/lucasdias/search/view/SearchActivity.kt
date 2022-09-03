@@ -1,11 +1,71 @@
 package com.lucasdias.search.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.lucasdias.android_core.extension.animateGoneToVisible
+import com.lucasdias.android_core.extension.animateVisibleToGone
+import com.lucasdias.android_core.extension.setUp
+import com.lucasdias.android_core.extension.showError
+import com.lucasdias.android_core.extension.showSuccess
+import com.lucasdias.android_core.navigator.Navigator
+import com.lucasdias.core.timber.logWithTimber
+import com.lucasdias.search.view.databinding.ActivitySearchBinding
+import com.lucasdias.search.view.model.UIRequestType
+import com.lucasdias.search.view.model.UIRequestType.CAT
+import com.lucasdias.search.view.model.UIRequestType.CAT_AND_DOG
+import com.lucasdias.search.view.model.UIRequestType.DOG
+import org.koin.android.ext.android.inject
 
 class SearchActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySearchBinding
+    private lateinit var requestType: UIRequestType
+    private val navigator by inject<Navigator>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
+        binding = ActivitySearchBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setUpSpinner()
+        setUpSearchButton()
+    }
+
+    private fun setUpSpinner() {
+        val options = listOf(CAT.description, DOG.description, CAT_AND_DOG.description)
+        binding.requestTypeSpinner.setUp(this, options) { selectedOptionText ->
+            requestType = getRequestTypeByDescription(selectedOptionText)
+        }
+    }
+
+    private fun getRequestTypeByDescription(description: String): UIRequestType {
+        return when (description) {
+            CAT.description -> CAT
+            DOG.description -> DOG
+            CAT_AND_DOG.description -> CAT_AND_DOG
+            else -> CAT
+        }
+    }
+
+    private fun setUpSearchButton() = with(binding) {
+        searchButton.setOnClickListener {
+            val searchText = searchTextInputEditText.text.toString()
+            if (searchText.isNotEmpty()) {
+                initiateSearch(searchText)
+            } else {
+                showSearchErrorState()
+            }
+        }
+    }
+
+    private fun initiateSearch(searchText: String) = with(binding) {
+        emptySearchMessage.animateVisibleToGone()
+        searchTextInputLayout.showSuccess()
+        logWithTimber("searchText.isNotEmpty()")
+    }
+
+    private fun showSearchErrorState() = with(binding) {
+        searchTextInputLayout.showError()
+        emptySearchMessage.animateGoneToVisible()
+        logWithTimber("!searchText.isNotEmpty()")
     }
 }

@@ -13,6 +13,7 @@
         <item name="android:paddingEnd">26dp</item>
         <item name="android:maxLines">1</item>
         <item name="android:maxLength">32</item>
+        <item name="android:background">@drawable/default_input_text_shape</item>
     </style>
 
 </resources>

@@ -40,7 +40,6 @@ dependencies {
     implementation project(Dependency.Module.android_core)
     implementation project(Dependency.Module.api_data_source)
     implementation project(Dependency.Module.search_view)
-    implementation project(Dependency.Module.search_view_model)
     implementation project(Dependency.Module.domain)
     implementation project(Dependency.Module.repository)
     implementation Dependency.Core.kotlin_stdlib

@@ -40,14 +40,10 @@ android {
 dependencies {
     implementation(project(Dependency.Module.android_core))
     implementation(project(Dependency.Module.resource))
-    implementation(project(Dependency.Module.search_view_model))
     implementation(Dependency.Core.core_ktx)
     implementation(Dependency.Core.appcompat)
     implementation(Dependency.DI.koin)
     implementation(Dependency.UI.constraint_layout)
     implementation(Dependency.UI.material)
     implementation(Dependency.UI.shimmer)
-    implementation("androidx.appcompat:appcompat:1.4.2")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
