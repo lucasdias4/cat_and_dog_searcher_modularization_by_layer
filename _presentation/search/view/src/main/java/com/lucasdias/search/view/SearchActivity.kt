@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.lucasdias.android_core.extension.animateGoneToVisible
 import com.lucasdias.android_core.extension.animateVisibleToGone
+import com.lucasdias.android_core.extension.hideKeyBoard
+import com.lucasdias.android_core.extension.onImeActionDone
 import com.lucasdias.android_core.extension.setUp
 import com.lucasdias.android_core.extension.showError
 import com.lucasdias.android_core.extension.showSuccess
@@ -27,6 +29,7 @@ class SearchActivity : AppCompatActivity() {
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpSpinner()
+        setUpInputText()
         setUpSearchButton()
     }
 
@@ -45,10 +48,14 @@ class SearchActivity : AppCompatActivity() {
             else -> CAT
         }
     }
+    private fun setUpInputText() = with(binding) {
+        searchTextInputEditText.onImeActionDone { searchButton.performClick() }
+    }
 
     private fun setUpSearchButton() = with(binding) {
         searchButton.setOnClickListener {
             val searchText = searchTextInputEditText.text.toString()
+            hideKeyBoard()
             if (searchText.isNotEmpty()) {
                 initiateSearch(searchText)
             } else {

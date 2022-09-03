@@ -38,7 +38,7 @@ fun View.animateGoneToVisible() {
         this.startAlphaAnimation(
             alphaStart = 0F,
             alphaEnd = 1F,
-            visibilityStart = View.GONE,
+            visibilityStart = View.VISIBLE,
             visibilityEnd = View.VISIBLE,
             animationDuration = 500L
         )
