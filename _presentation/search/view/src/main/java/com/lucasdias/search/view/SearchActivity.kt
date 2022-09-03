@@ -14,7 +14,6 @@ import com.lucasdias.common_model.UIAnimalType
 import com.lucasdias.common_model.UIAnimalType.CAT
 import com.lucasdias.common_model.UIAnimalType.CAT_AND_DOG
 import com.lucasdias.common_model.UIAnimalType.DOG
-import com.lucasdias.core.timber.logWithTimber
 import com.lucasdias.search.view.databinding.ActivitySearchBinding
 import org.koin.android.ext.android.inject
 
@@ -22,7 +21,7 @@ class SearchActivity : AppCompatActivity() {
 
     private val navigator by inject<Navigator>()
     private lateinit var binding: ActivitySearchBinding
-    private lateinit var requestType: UIAnimalType
+    private lateinit var animalType: UIAnimalType
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,12 +34,12 @@ class SearchActivity : AppCompatActivity() {
 
     private fun setUpSpinner() {
         val options = listOf(CAT.description, DOG.description, CAT_AND_DOG.description)
-        binding.requestTypeSpinner.setUp(this, options) { selectedOptionText ->
-            requestType = getRequestTypeByDescription(description = selectedOptionText)
+        binding.animalTypeSpinner.setUp(this, options) { selectedOptionText ->
+            animalType = getAnimalTypeByDescription(description = selectedOptionText)
         }
     }
 
-    private fun getRequestTypeByDescription(description: String): UIAnimalType {
+    private fun getAnimalTypeByDescription(description: String): UIAnimalType {
         return when (description) {
             CAT.description -> CAT
             DOG.description -> DOG
@@ -57,22 +56,21 @@ class SearchActivity : AppCompatActivity() {
             val searchText = searchTextInputEditText.text.toString()
             hideKeyBoard()
             if (searchText.isNotEmpty()) {
-                initiateSearch(searchText, requestType)
+                initiateSearch(searchText, animalType)
             } else {
                 showSearchErrorState()
             }
         }
     }
 
-    private fun initiateSearch(searchText: String, requestType: UIAnimalType) = with(binding) {
+    private fun initiateSearch(searchText: String, animalType: UIAnimalType) = with(binding) {
         emptySearchMessage.animateVisibleToGone()
         searchTextInputLayout.showSuccess()
-        logWithTimber("searchText.isNotEmpty()")
+        navigator.navigateToBreedList(searchText, animalType.name, this@SearchActivity)
     }
 
     private fun showSearchErrorState() = with(binding) {
         searchTextInputLayout.showError()
         emptySearchMessage.animateGoneToVisible()
-        logWithTimber("!searchText.isNotEmpty()")
     }
 }

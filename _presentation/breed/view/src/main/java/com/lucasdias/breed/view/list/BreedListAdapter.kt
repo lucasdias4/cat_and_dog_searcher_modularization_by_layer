@@ -1,4 +1,4 @@
-package com.lucasdias.breed.view
+package com.lucasdias.breed.view.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

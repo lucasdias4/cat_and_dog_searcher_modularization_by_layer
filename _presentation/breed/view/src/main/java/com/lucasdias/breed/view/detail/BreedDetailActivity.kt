@@ -1,9 +1,10 @@
-package com.lucasdias.breed.view
+package com.lucasdias.breed.view.detail
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.lucasdias.breed.view.R
 import com.lucasdias.breed.view_model.model.UIBreed
 
 private const val BREED_KEY = "BREED_KEY"

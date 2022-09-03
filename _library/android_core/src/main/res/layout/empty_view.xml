@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wild_sand">
+
+    <ImageView
+        android:id="@+id/icon_success_without_content_view"
+        android:layout_width="@dimen/dimen_128"
+        android:layout_height="@dimen/dimen_148"
+        android:src="@drawable/cat_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/P3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="@dimen/dimen_40"
+        android:text="We didn\'t find any breed of animal with this name. Try again."
+        android:textColor="@color/nero"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_success_without_content_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>

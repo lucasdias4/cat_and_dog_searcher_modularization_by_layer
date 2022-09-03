@@ -39,9 +39,11 @@ android {
 dependencies {
     implementation project(Dependency.Module.android_core)
     implementation project(Dependency.Module.api_data_source)
-    implementation project(Dependency.Module.search_view)
+    implementation project(Dependency.Module.breed_view)
+    implementation project(Dependency.Module.breed_view_model)
     implementation project(Dependency.Module.domain)
     implementation project(Dependency.Module.repository)
+    implementation project(Dependency.Module.search_view)
     implementation Dependency.Core.kotlin_stdlib
     implementation Dependency.DI.koin
     implementation Dependency.UI.constraint_layout

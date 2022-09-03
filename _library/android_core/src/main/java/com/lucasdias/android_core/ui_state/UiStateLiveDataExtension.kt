@@ -9,12 +9,14 @@ import androidx.lifecycle.LiveData
 fun <T> LiveData<UIState<T>>.observeState(
     owner: LifecycleOwner,
     success: ((T) -> Unit),
+    empty: (() -> Unit),
     error: ((Throwable?) -> Unit),
     loading: (() -> Unit)
 ) {
-    val observer = UiStateObserver<T>(
+    val observer = UiStateObserver(
         loading = loading,
         success = success,
+        empty = empty,
         error = error
     )
     observe(owner, observer)

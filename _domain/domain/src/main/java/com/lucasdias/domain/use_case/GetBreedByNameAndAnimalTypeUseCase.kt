@@ -6,16 +6,21 @@ import com.lucasdias.domain.model.breed.Breed
 import com.lucasdias.domain.model.search.AnimalType
 import com.lucasdias.domain.repository.CatRepository
 import com.lucasdias.domain.repository.DogRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.withContext
 
 class GetBreedByNameAndAnimalTypeUseCase(
     private val catRepository: CatRepository,
     private val dogRepository: DogRepository
 ) {
-    suspend operator fun invoke(name: String, requestType: AnimalType): State<List<Breed>> {
-        return when (requestType) {
+    suspend operator fun invoke(
+        name: String,
+        animalType: AnimalType
+    ): State<List<Breed>> = withContext(Dispatchers.IO) {
+        return@withContext when (animalType) {
             AnimalType.CAT -> catRepository.getBreeds(name)
             AnimalType.DOG -> dogRepository.getBreeds(name)
             else -> getCatAndDogBreeds(name)

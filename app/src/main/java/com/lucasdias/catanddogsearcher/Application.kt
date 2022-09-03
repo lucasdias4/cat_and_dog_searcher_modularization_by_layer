@@ -2,6 +2,8 @@ package com.lucasdias.catanddogsearcher
 
 import android.app.Application
 import com.lucasdias.android_core.di.androidCoreModule
+import com.lucasdias.breed.view.di.breedViewModule
+import com.lucasdias.breed.view_model.di.breedViewModelModule
 import com.lucasdias.catanddogsearcher.di.appModule
 import com.lucasdias.data_source.di.apiDataSourceModule
 import com.lucasdias.domain.di.domainModule
@@ -25,9 +27,11 @@ class Application : Application() {
             logger(setupDependencyInjectionLogger())
             modules(
                 listOf(
-                    apiDataSourceModule,
                     androidCoreModule,
+                    apiDataSourceModule,
                     appModule,
+                    breedViewModule,
+                    breedViewModelModule,
                     domainModule,
                     repositoryModule
                 )

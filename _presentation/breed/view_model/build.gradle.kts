@@ -38,6 +38,7 @@ android {
 dependencies {
     implementation(project(Dependency.Module.android_core))
     implementation(project(Dependency.Module.domain))
+    implementation(project(Dependency.Module.presentation_common_model))
     implementation(Dependency.Core.appcompat)
     implementation(Dependency.Core.coroutines_core)
     implementation(Dependency.Core.core_ktx)

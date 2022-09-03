@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/error_view_wrapper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/nero">
@@ -12,10 +11,10 @@
         android:layout_height="@dimen/dimen_128"
         android:layout_marginBottom="@dimen/dimen_24"
         android:src="@drawable/alert_icon"
-        app:layout_constraintBottom_toTopOf="@id/message_error_view_component" />
+        app:layout_constraintBottom_toTopOf="@id/message" />
 
     <TextView
-        android:id="@+id/message_error_view_component"
+        android:id="@+id/message"
         style="@style/P2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
