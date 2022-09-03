@@ -38,12 +38,17 @@ class BreedListActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getBreeds(breedName, animalType = UIAnimalType.valueOf(animalTypeName))
+        getBreeds()
+    }
+
+    private fun getBreeds() {
+        if (adapter.currentList.isEmpty()) {
+            viewModel.getBreeds(breedName, animalType = UIAnimalType.valueOf(animalTypeName))
+        }
     }
 
     private fun setUpRecyclerView() = with(binding.recyclerView) {
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-//        setHasFixedSize(true)
         this.layoutManager = layoutManager
         this.adapter = this@BreedListActivity.adapter
     }

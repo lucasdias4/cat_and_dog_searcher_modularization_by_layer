@@ -1,1 +1,5 @@
-<resources></resources>
+<resources>
+    <string name="name_breed_activity">Name</string>
+    <string name="temperament_breed_activity">Temperament</string>
+    <string name="lifetime_breed_activity">Lifetime</string>
+</resources>

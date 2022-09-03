@@ -2,9 +2,15 @@ package com.lucasdias.breed.view.detail
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import com.lucasdias.android_core.extension.gone
+import com.lucasdias.android_core.extension.loadImage
 import com.lucasdias.breed.view.R
+import com.lucasdias.breed.view.databinding.ActivityBreedDetailBinding
+import com.lucasdias.breed.view.databinding.BreedDetailSectionBinding
 import com.lucasdias.breed.view_model.model.UIBreed
 
 private const val BREED_KEY = "BREED_KEY"
@@ -22,9 +28,39 @@ fun navigateToBreedDetailActivity(activity: Activity, breed: UIBreed) {
 class BreedDetailActivity : AppCompatActivity() {
 
     private val breed: UIBreed? by lazy { intent?.getParcelableExtra(BREED_KEY) }
+    private lateinit var binding: ActivityBreedDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_breed_detail)
+        binding = ActivityBreedDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setUpView()
+    }
+
+    private fun setUpView() = with(binding) {
+        image.loadImage(breed?.imageUrl)
+        setupSection(nameSection, R.string.name_breed_activity, breed?.name)
+        setupSection(temperamentSection, R.string.temperament_breed_activity, breed?.temperament)
+        setupSection(lifetimeSection, R.string.lifetime_breed_activity, breed?.lifetime)
+        setUpButton()
+    }
+
+    private fun setupSection(
+        section: BreedDetailSectionBinding,
+        @StringRes titleRes: Int,
+        text: String?
+    ) {
+        if (text.isNullOrEmpty()) section.layout.gone()
+        section.title.text = getText(titleRes)
+        section.description.text = text
+    }
+
+    private fun setUpButton() = with(binding.wikipediaButton) {
+        if (breed?.wikipediaUrl.isNullOrEmpty()) this.gone()
+        setOnClickListener {
+            val intent = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+            intent.data = Uri.parse(breed?.wikipediaUrl)
+            startActivity(intent)
+        }
     }
 }
