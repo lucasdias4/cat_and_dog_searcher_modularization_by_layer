@@ -36,7 +36,7 @@ class SearchActivity : AppCompatActivity() {
     private fun setUpSpinner() {
         val options = listOf(CAT.description, DOG.description, CAT_AND_DOG.description)
         binding.requestTypeSpinner.setUp(this, options) { selectedOptionText ->
-            requestType = getRequestTypeByDescription(selectedOptionText)
+            requestType = getRequestTypeByDescription(description = selectedOptionText)
         }
     }
 
@@ -57,14 +57,14 @@ class SearchActivity : AppCompatActivity() {
             val searchText = searchTextInputEditText.text.toString()
             hideKeyBoard()
             if (searchText.isNotEmpty()) {
-                initiateSearch(searchText)
+                initiateSearch(searchText, requestType)
             } else {
                 showSearchErrorState()
             }
         }
     }
 
-    private fun initiateSearch(searchText: String) = with(binding) {
+    private fun initiateSearch(searchText: String, requestType: UIRequestType) = with(binding) {
         emptySearchMessage.animateVisibleToGone()
         searchTextInputLayout.showSuccess()
         logWithTimber("searchText.isNotEmpty()")
