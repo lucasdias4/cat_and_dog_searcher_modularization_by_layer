@@ -1,4 +1,4 @@
-package com.lucasdias.search.view.model
+package com.lucasdias.common_model
 
 enum class UIRequestType(val description: String) {
     CAT("Search for cats"),

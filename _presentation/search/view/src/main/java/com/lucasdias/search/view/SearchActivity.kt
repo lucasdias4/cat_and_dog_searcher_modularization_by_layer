@@ -10,12 +10,12 @@ import com.lucasdias.android_core.extension.setUp
 import com.lucasdias.android_core.extension.showError
 import com.lucasdias.android_core.extension.showSuccess
 import com.lucasdias.android_core.navigator.Navigator
+import com.lucasdias.common_model.UIRequestType
+import com.lucasdias.common_model.UIRequestType.CAT
+import com.lucasdias.common_model.UIRequestType.CAT_AND_DOG
+import com.lucasdias.common_model.UIRequestType.DOG
 import com.lucasdias.core.timber.logWithTimber
 import com.lucasdias.search.view.databinding.ActivitySearchBinding
-import com.lucasdias.search.view.model.UIRequestType
-import com.lucasdias.search.view.model.UIRequestType.CAT
-import com.lucasdias.search.view.model.UIRequestType.CAT_AND_DOG
-import com.lucasdias.search.view.model.UIRequestType.DOG
 import org.koin.android.ext.android.inject
 
 class SearchActivity : AppCompatActivity() {

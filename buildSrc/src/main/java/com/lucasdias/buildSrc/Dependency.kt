@@ -71,15 +71,17 @@ object Dependency {
 
         const val api = ":_library:remote_data:api"
 
+        const val api_data_source = ":_data:api_data_source"
+
         const val api_model = ":_library:remote_data:model"
 
         const val core = ":_library:core"
 
-        const val api_data_source = ":_data:api_data_source"
-
         const val domain = ":_domain:domain"
 
         const val data_core = ":_library:data_core"
+
+        const val presentation_common_model = ":_presentation:common_model"
 
         const val repository = ":_data:repository"
 
