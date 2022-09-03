@@ -10,5 +10,6 @@ data class UIBreed(
     val temperament: String?,
     val imageUrl: String,
     val lifetime: String?,
-    val wikipediaUrl: String?
+    val wikipediaUrl: String?,
+    val energyLevel: String?
 ) : Parcelable

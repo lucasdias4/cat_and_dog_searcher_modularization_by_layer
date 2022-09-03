@@ -42,6 +42,7 @@ class BreedDetailActivity : AppCompatActivity() {
         setupSection(nameSection, R.string.name_breed_activity, breed?.name)
         setupSection(temperamentSection, R.string.temperament_breed_activity, breed?.temperament)
         setupSection(lifetimeSection, R.string.lifetime_breed_activity, breed?.lifetime)
+        setupSection(energyLevelSection, R.string.energy_level_breed_activity, breed?.energyLevel)
         setUpButton()
     }
 

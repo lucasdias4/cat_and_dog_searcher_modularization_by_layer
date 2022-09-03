@@ -11,7 +11,7 @@ fun List<ApiBreed>.toDomain(animalType: AnimalType): List<Breed> {
 }
 
 private fun ApiBreed.toDomain(animalType: AnimalType): Breed {
-    return Breed(id, name, temperament, animalType.getImageUrl(imageId), lifetime, wikipediaUrl)
+    return Breed(id, name, temperament, animalType.getImageUrl(imageId), lifetime, wikipediaUrl, energyLevel)
 }
 
 private fun AnimalType.getImageUrl(imageId: String?): String {

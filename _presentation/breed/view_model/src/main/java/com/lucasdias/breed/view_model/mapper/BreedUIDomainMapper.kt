@@ -16,6 +16,7 @@ private fun Breed.toUI(): UIBreed {
         temperament,
         imageUrl,
         lifetime,
-        wikipediaUrl
+        wikipediaUrl,
+        energyLevel
     )
 }

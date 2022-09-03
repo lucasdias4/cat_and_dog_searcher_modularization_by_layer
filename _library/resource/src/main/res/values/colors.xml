@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="background_1">@color/wild_sand</color>
+    <color name="background_2">@color/bilbao</color>
+    <color name="background_3">@color/bilbao</color>
+
+    <color name="text_1">@color/nero</color>
+    <color name="text_2">@color/wild_sand</color>
+    <color name="text_3">@color/bilbao</color>
+    <color name="text_4">@color/emperor</color>
+    <color name="text_5">@color/nero</color>
+    <color name="text_6">@color/wild_sand</color>
+
     <color name="alto">#CFCFCF</color>
     <color name="bilbao">#177718</color>
     <color name="black">#000000</color>

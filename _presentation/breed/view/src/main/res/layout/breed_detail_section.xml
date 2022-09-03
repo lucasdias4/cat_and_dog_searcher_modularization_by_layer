@@ -3,7 +3,7 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/wild_sand"
+    android:background="@color/background_1"
     android:orientation="vertical"
     android:padding="@dimen/dimen_16">
 
@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/bilbao"
+            android:background="@color/background_3"
             android:orientation="vertical">
 
             <TextView
@@ -30,7 +30,7 @@
                 android:maxWidth="@dimen/dimen_320"
                 android:maxLines="1"
                 android:paddingHorizontal="@dimen/dimen_4"
-                android:textColor="@color/wild_sand" />
+                android:textColor="@color/text_2" />
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
@@ -41,6 +41,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textAppearance="@style/P3_bold"
-        android:textColor="@color/nero" />
+        android:textColor="@color/text_1" />
 
 </LinearLayout>

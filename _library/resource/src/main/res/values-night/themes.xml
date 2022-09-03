@@ -1,4 +1,5 @@
 <resources>
+
     <style name="Theme.CatAndDog" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/nero</item>
         <item name="colorPrimaryVariant">@color/nero</item>
@@ -18,4 +19,5 @@
         <item name="colorOnSecondary">@color/nero</item>
         <item name="android:statusBarColor">@color/nero</item>
     </style>
+
 </resources>

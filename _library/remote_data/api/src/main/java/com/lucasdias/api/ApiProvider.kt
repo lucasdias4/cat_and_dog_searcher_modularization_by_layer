@@ -43,6 +43,10 @@ fun createDogOkHttpClient(): OkHttpClient {
             val request = chain.request().newBuilder().addHeader(DOG_API_KEY_NAME, DOG_API_KEY)
             chain.proceed(request.build())
         }
+        .addInterceptor { chain ->
+            val request = chain.request().newBuilder().addHeader("Accept-Encoding", "identity")
+            chain.proceed(request.build())
+        }
         .build()
 }
 
@@ -56,6 +60,10 @@ fun createCatOkHttpClient(): OkHttpClient {
         .addInterceptor(httpLoggingInterceptor)
         .addInterceptor { chain ->
             val request = chain.request().newBuilder().addHeader(CAT_API_KEY_NAME, CAT_API_KEY)
+            chain.proceed(request.build())
+        }
+        .addInterceptor { chain ->
+            val request = chain.request().newBuilder().addHeader("Accept-Encoding", "identity")
             chain.proceed(request.build())
         }
         .build()

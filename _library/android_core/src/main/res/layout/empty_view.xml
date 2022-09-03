@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/wild_sand">
+    android:background="@color/background_1">
 
     <ImageView
         android:id="@+id/icon_success_without_content_view"
@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingHorizontal="@dimen/dimen_40"
-        android:text="We didn\'t find any breed of animal with this name. Try again."
-        android:textColor="@color/nero"
+        android:text="@string/description_empty_view"
+        android:textColor="@color/text_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_success_without_content_view" />
