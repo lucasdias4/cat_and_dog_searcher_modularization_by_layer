@@ -10,7 +10,7 @@ val domainModule = module {
     factory {
         GetBreedByNameAndAnimalTypeUseCase(
             get<CatRepository>(),
-            get<DogRepository>(),
+            get<DogRepository>()
         )
     }
 }
