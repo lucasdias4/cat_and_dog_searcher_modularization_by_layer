@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/title_card_view_card_component"
+        android:id="@+id/title_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_32"
@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:id="@+id/title_layout_card_component"
+            android:id="@+id/title_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@color/background_3"
@@ -36,7 +36,7 @@
             android:padding="@dimen/dimen_4">
 
             <TextView
-                android:id="@+id/text"
+                android:id="@+id/title"
                 style="@style/U1_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

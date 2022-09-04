@@ -6,7 +6,6 @@ import org.koin.dsl.module
 
 @Suppress("RemoveExplicitTypeArguments", "USELESS_CAST")
 val breedViewModule = module {
-
     factory { (navigate: ((UIBreed) -> Unit)) ->
         BreedListAdapter(navigate)
     }

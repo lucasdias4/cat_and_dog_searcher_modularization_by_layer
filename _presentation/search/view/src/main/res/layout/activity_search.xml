@@ -6,7 +6,7 @@
     android:background="@color/background_1">
 
     <include
-        android:id="@+id/logo_view"
+        android:id="@+id/logo"
         layout="@layout/default_logo_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,8 +19,8 @@
         android:id="@+id/animal_type_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/nero"
         android:layout_marginBottom="@dimen/dimen_16"
+        android:backgroundTint="@color/nero"
         app:layout_constraintBottom_toTopOf="@id/search_text_input_layout"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -40,7 +40,7 @@
             style="@style/CustomTextInputEditLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="animal breed"
+            android:hint="@string/animal_breed_text_view_hint"
             android:imeOptions="actionDone"
             android:inputType="text"
             android:maxLines="1" />

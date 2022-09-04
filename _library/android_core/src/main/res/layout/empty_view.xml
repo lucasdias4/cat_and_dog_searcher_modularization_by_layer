@@ -6,7 +6,7 @@
     android:background="@color/background_1">
 
     <ImageView
-        android:id="@+id/icon_success_without_content_view"
+        android:id="@+id/image"
         android:layout_width="@dimen/dimen_128"
         android:layout_height="@dimen/dimen_148"
         android:src="@drawable/cat_icon"

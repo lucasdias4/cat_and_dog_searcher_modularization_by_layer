@@ -35,7 +35,7 @@ class BreedListAdapter(private val navigate: (UIBreed) -> Unit) :
     ) : RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(breed: UIBreed) = with(itemBinding) {
-            text.text = breed.name
+            title.text = breed.name
             image.loadImage(url = breed.imageUrl)
             layout.setOnClickListener {
                 navigate(breed)
@@ -60,7 +60,8 @@ class BreedListAdapter(private val navigate: (UIBreed) -> Unit) :
                 oldItem.imageUrl == newItem.imageUrl &&
                 oldItem.lifetime == newItem.lifetime &&
                 oldItem.temperament == newItem.temperament &&
-                oldItem.wikipediaUrl == newItem.wikipediaUrl
+                oldItem.wikipediaUrl == newItem.wikipediaUrl &&
+                oldItem.energyLevel == oldItem.energyLevel
         }
     }
 }

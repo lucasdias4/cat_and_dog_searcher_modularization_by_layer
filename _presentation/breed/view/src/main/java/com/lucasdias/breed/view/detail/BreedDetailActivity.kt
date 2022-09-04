@@ -39,27 +39,34 @@ class BreedDetailActivity : AppCompatActivity() {
 
     private fun setUpView() = with(binding) {
         image.loadImage(breed?.imageUrl)
-        setupSection(nameSection, R.string.name_breed_activity, breed?.name)
-        setupSection(temperamentSection, R.string.temperament_breed_activity, breed?.temperament)
-        setupSection(lifetimeSection, R.string.lifetime_breed_activity, breed?.lifetime)
-        setupSection(energyLevelSection, R.string.energy_level_breed_activity, breed?.energyLevel)
+        setUpSection(nameSection, R.string.name_breed_activity, breed?.name)
+        setUpSection(temperamentSection, R.string.temperament_breed_activity, breed?.temperament)
+        setUpSection(lifetimeSection, R.string.lifetime_breed_activity, breed?.lifetime)
+        setUpSection(energyLevelSection, R.string.energy_level_breed_activity, breed?.energyLevel)
         setUpButton()
     }
 
-    private fun setupSection(
+    private fun setUpSection(
         section: BreedDetailSectionBinding,
         @StringRes titleRes: Int,
         text: String?
     ) {
-        if (text.isNullOrEmpty()) section.layout.gone()
+        if (text.isNullOrEmpty()) {
+            section.layout.gone()
+            return
+        }
         section.title.text = getText(titleRes)
         section.description.text = text
     }
 
     private fun setUpButton() = with(binding.wikipediaButton) {
-        if (breed?.wikipediaUrl.isNullOrEmpty()) this.gone()
+        if (breed?.wikipediaUrl.isNullOrEmpty()) {
+            gone()
+            return
+        }
         setOnClickListener {
-            val intent = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+            val intent =
+                Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
             intent.data = Uri.parse(breed?.wikipediaUrl)
             startActivity(intent)
         }

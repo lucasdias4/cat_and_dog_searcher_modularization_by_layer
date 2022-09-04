@@ -16,20 +16,7 @@ object Dependency {
 
         const val lifecycle_view_model = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
-        const val legacy_support: String =
-            "androidx.legacy:legacy-support-v4:" + Versions.legacy_support
-
-        const val navigation_fragment: String = "androidx.navigation:navigation-fragment-ktx:" + Versions.navigation
-
-        const val navigation_ui: String = "androidx.navigation:navigation-ui-ktx:" + Versions.navigation
-
         const val kotlin_stdlib: String = "org.jetbrains.kotlin:kotlin-stdlib:" + Versions.kotlin
-
-        const val kotlin_stdlib_jdk7: String =
-            "org.jetbrains.kotlin:kotlin-stdlib-jdk7:" + Versions.kotlin
-
-        const val kotlin_stdlib_jdk8: String =
-            "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" + Versions.kotlin
 
         const val timber = "com.jakewharton.timber:timber:" + Versions.timber
     }
@@ -38,9 +25,6 @@ object Dependency {
 
         const val converter_gson: String =
             "com.squareup.retrofit2:converter-gson:" + Versions.retrofit
-
-        const val preference: String =
-            "androidx.preference:preference-ktx:" + Versions.preference
 
         const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:" + Versions.logging_interceptor
 
@@ -55,13 +39,6 @@ object Dependency {
          * https://github.com/InsertKoinIO/koin
          */
         const val koin: String = "io.insert-koin:koin-android:" + Versions.koin
-    }
-
-    object External {
-
-        const val firebase_analytics: String = "com.google.firebase:firebase-analytics-ktx"
-
-        const val firebase_bom: String = "com.google.firebase:firebase-bom:" + Versions.firebase_bom
     }
 
     object Module {
@@ -103,38 +80,13 @@ object Dependency {
          * https://github.com/pinterest/ktlint
          */
         const val ktlint: String = "com.pinterest:ktlint:" + Versions.ktlint
-
-        const val navigation_safe_args: String = "androidx.navigation:navigation-safe-args-gradle-plugin:" + Versions.navigation
-
-        const val google_services: String = "com.google.gms:google-services:" + Versions.google_service
     }
 
     object Test {
-        const val core_testing: String = "androidx.arch.core:core-testing:" + Versions.core_testing
-
-        /**
-         * https://developer.android.com/testing
-         */
-        const val espresso_contrib: String = "androidx.test.espresso:espresso-contrib:" +
-            Versions.espresso
-
-        const val espresso_core: String = "androidx.test.espresso:espresso-core:" +
-            Versions.espresso
-
-        const val espresso_intents: String = "androidx.test.espresso:espresso-intents:" +
-            Versions.espresso
-
-        const val fragment_testing: String =
-            "androidx.fragment:fragment-testing:" + Versions.fragment_testing
-
         /**
          * http://junit.org
          */
         const val junit: String = "junit:junit:" + Versions.junit
-
-        const val junit_android: String = "androidx.test.ext:junit:" + Versions.junit_android
-
-        const val koin: String = "org.koin:koin-test:" + Versions.koin
 
         /**
          * https://github.com/Kotlin/kotlinx.coroutines
@@ -148,17 +100,10 @@ object Dependency {
          */
         const val mockk: String = "io.mockk:mockk:" + Versions.mockk
 
-        const val mockk_android: String = "io.mockk:mockk-android:" + Versions.mockk
-
-        const val test_runner: String = "androidx.test:runner:" + Versions.runner
-
         const val mockito_inline: String = "org.mockito:mockito-inline:" + Versions.mockito_inline
     }
 
     object UI {
-
-        const val card_view: String = "androidx.cardview:cardview:" + Versions.card_view
-
         const val constraint_layout: String = "androidx.constraintlayout:constraintlayout:" +
             Versions.constraint_layout
 
@@ -167,20 +112,7 @@ object Dependency {
          */
         const val glide: String = "com.github.bumptech.glide:glide:" + Versions.glide
 
-        const val glide_annotations: String =
-            "com.github.bumptech.glide:annotations:" + Versions.glide
-
-        const val glide_compiler: String = "com.github.bumptech.glide:compiler:" + Versions.glide
-
         const val material: String = "com.google.android.material:material:" + Versions.material
-
-        /**
-         * AndroidX Components and Tools
-         * https://developer.android.com/jetpack/androidx
-         */
-
-        const val recycler_view: String =
-            "androidx.recyclerview:recyclerview:" + Versions.recycler_view
 
         /**
          * http://facebook.github.io/shimmer-android

@@ -18,7 +18,11 @@ class ActivityNavigatorImpl : ActivityNavigator {
         }
     }
 
-    override fun navigateToBreedList(breedName: String, animalTypeName: String, activity: Activity) {
+    override fun navigateToBreedList(
+        breedName: String,
+        animalTypeName: String,
+        activity: Activity
+    ) {
         Intent(activity, BreedListActivity::class.java).run {
             Bundle().also {
                 it.putString(BREED_NAME_KEY, breedName)

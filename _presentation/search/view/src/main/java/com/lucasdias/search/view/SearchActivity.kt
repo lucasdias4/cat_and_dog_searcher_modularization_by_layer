@@ -47,6 +47,7 @@ class SearchActivity : AppCompatActivity() {
             else -> CAT
         }
     }
+
     private fun setUpInputText() = with(binding) {
         searchTextInputEditText.onImeActionDone { searchButton.performClick() }
     }

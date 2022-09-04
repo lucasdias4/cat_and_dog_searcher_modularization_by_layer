@@ -51,9 +51,9 @@ class BreedListActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView() = with(binding.recyclerView) {
-        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        this.layoutManager = layoutManager
-        this.adapter = this@BreedListActivity.adapter
+        val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        layoutManager = linearLayoutManager
+        adapter = this@BreedListActivity.adapter
     }
 
     private fun setUpObservers() {

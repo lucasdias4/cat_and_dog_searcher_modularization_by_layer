@@ -21,11 +21,3 @@ fun <T> LiveData<UIState<T>>.observeState(
     )
     observe(owner, observer)
 }
-
-/**
- * observe success only
- */
-fun <T> LiveData<UIState<T>>.observeState(owner: LifecycleOwner, success: (T?) -> Unit) {
-    val observer = UiStateObserver<T>(success = success)
-    observe(owner, observer)
-}
