@@ -8,7 +8,7 @@ This application has as main objective to consult the list of cat and dog breeds
 - Search for a list of dog breeds;
 - See a list of cat breeds;
 - See a list of dog breeds;
-- See the detail of the selected breed;
+- See the detail of the selected breed.
 
 ### Tech stack:
 - Kotlin;
