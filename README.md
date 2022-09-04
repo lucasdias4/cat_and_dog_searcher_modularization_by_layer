@@ -22,16 +22,16 @@ This application has as main objective to consult the list of cat and dog breeds
 
 ### Screenshoots
 <p align="center">
- <img src="/documentation/splash_day.jpg" width=18% height=18%>
- <img src="/documentation/splash_night.jpg" width=18% height=18%>
- <img src="/documentation/search_day.jpg" width=18% height=18%>
- <img src="/documentation/search_night.jpg" width=18% height=18%>
+ <img src="/documentation/splash_day.jpg" width=20% height=20%>
+ <img src="/documentation/splash_night.jpg" width=20% height=20%>
+ <img src="/documentation/search_day.jpg" width=20% height=20%>
+ <img src="/documentation/search_night.jpg" width=20% height=20%>
 </p>
 <p align="center">
- <img src="/documentation/breed_list_day.jpg" width=18% height=18%>
- <img src="/documentation/breed_list_night.jpg" width=18% height=18%>
- <img src="/documentation/breed_detail_day.jpg" width=18% height=18%>
- <img src="/documentation/breed_detail_night.jpg" width=18% height=18%>
+ <img src="/documentation/breed_list_day.jpg" width=20% height=20%>
+ <img src="/documentation/breed_list_night.jpg" width=20% height=20%>
+ <img src="/documentation/breed_detail_day.jpg" width=20% height=20%>
+ <img src="/documentation/breed_detail_night.jpg" width=20% height=20%>
 </p>
 
 ## Architecture
