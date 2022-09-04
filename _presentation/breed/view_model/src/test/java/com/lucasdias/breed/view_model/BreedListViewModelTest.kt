@@ -38,7 +38,7 @@ class BreedListViewModelTest {
 
     @Test
     fun `IF the app still waiting for a breed search call THEN do not make another call`() =
-        runBlockingTest {
+        coroutinesTestRule.testDispatcher.runBlockingTest {
             coEvery {
                 getBreedByNameAndAnimalTypeUseCase(name, domainAnimalType)
             } returns successState
@@ -58,7 +58,7 @@ class BreedListViewModelTest {
 
     @Test
     fun `IF the app is not waiting for a breed search call THEN set loading state, make a call and once this call return a success, set success state`() =
-        runBlockingTest {
+        coroutinesTestRule.testDispatcher.runBlockingTest {
             coEvery {
                 getBreedByNameAndAnimalTypeUseCase(name, domainAnimalType)
             } returns successState
