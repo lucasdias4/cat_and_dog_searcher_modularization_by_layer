@@ -41,11 +41,10 @@ android {
 }
 
 dependencies {
-    api(project(Dependency.Module.resource))
     api(project(Dependency.Module.core))
+    implementation(project(Dependency.Module.resource))
     implementation(Dependency.Core.appcompat)
     implementation(Dependency.Core.core_ktx)
-    implementation(Dependency.Core.coroutines_core)
     implementation(Dependency.DI.koin)
     implementation(Dependency.UI.constraint_layout)
     implementation(Dependency.UI.glide)

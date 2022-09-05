@@ -36,5 +36,4 @@ android {
 
 dependencies {
     api(project(Dependency.Module.core))
-    implementation(Dependency.Core.coroutines_core)
 }

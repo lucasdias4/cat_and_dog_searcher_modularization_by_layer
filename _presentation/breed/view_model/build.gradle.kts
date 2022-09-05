@@ -44,7 +44,6 @@ dependencies {
     implementation(Dependency.Core.core_ktx)
     implementation(Dependency.Core.lifecycle_view_model)
     implementation(Dependency.DI.koin)
-    implementation(Dependency.UI.material)
     testImplementation(Dependency.Test.junit)
     testImplementation(Dependency.Test.kotlinx_coroutines_test)
     testImplementation(Dependency.Test.mockk)

@@ -35,6 +35,5 @@ android {
 }
 
 dependencies {
-    implementation(Dependency.Core.coroutines_core)
     implementation(Dependency.Core.timber)
 }

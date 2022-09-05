@@ -41,11 +41,5 @@ dependencies {
     implementation(project(Dependency.Module.repository))
     implementation(Dependency.Core.core_ktx)
     implementation(Dependency.Core.appcompat)
-    implementation(Dependency.Data.retrofit)
-    implementation(Dependency.Data.logging_interceptor)
     implementation(Dependency.DI.koin)
-    testImplementation(Dependency.Test.junit)
-    testImplementation(Dependency.Test.kotlinx_coroutines_test)
-    testImplementation(Dependency.Test.mockk)
-    testImplementation(Dependency.Test.mockito_inline)
 }

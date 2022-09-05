@@ -46,10 +46,5 @@ dependencies {
     implementation(project(Dependency.Module.domain))
     implementation(Dependency.Core.appcompat)
     implementation(Dependency.Core.core_ktx)
-    implementation(Dependency.Core.coroutines_android)
     implementation(Dependency.DI.koin)
-    testImplementation(Dependency.Test.junit)
-    testImplementation(Dependency.Test.kotlinx_coroutines_test)
-    testImplementation(Dependency.Test.mockk)
-    testImplementation(Dependency.Test.mockito_inline)
 }
