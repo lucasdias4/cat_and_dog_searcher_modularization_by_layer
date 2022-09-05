@@ -41,5 +41,6 @@ dependencies {
     implementation(project(Dependency.Module.repository))
     implementation(Dependency.Core.core_ktx)
     implementation(Dependency.Core.appcompat)
+    implementation(Dependency.Data.retrofit)
     implementation(Dependency.DI.koin)
 }
