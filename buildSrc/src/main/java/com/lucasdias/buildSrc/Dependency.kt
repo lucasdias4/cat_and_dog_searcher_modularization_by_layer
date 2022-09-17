@@ -85,6 +85,8 @@ object Dependency {
     }
 
     object Test {
+        const val core_testing: String = "androidx.arch.core:core-testing:" + Versions.core_testing
+
         /**
          * http://junit.org
          */

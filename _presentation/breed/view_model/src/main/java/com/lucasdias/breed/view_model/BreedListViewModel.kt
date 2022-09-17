@@ -1,5 +1,6 @@
 package com.lucasdias.breed.view_model
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,11 +19,12 @@ class BreedListViewModel(
     private val getBreedByNameAndAnimalTypeUseCase: GetBreedByNameAndAnimalTypeUseCase
 ) : ViewModel() {
 
-    private var _requestLiveData: MutableLiveData<UIState<List<UIBreed>>> = MutableLiveData()
+    @VisibleForTesting
+    internal var _requestLiveData: MutableLiveData<UIState<List<UIBreed>>> = MutableLiveData()
     val requestLiveData: LiveData<UIState<List<UIBreed>>> by lazy { _requestLiveData }
 
-    fun getBreeds(name: String, animalType: UIAnimalType, isScreenNotEmpty: Boolean) {
-        if (shouldNotRequestData(isScreenNotEmpty)) {
+    fun getBreeds(name: String, animalType: UIAnimalType, isScreenEmpty: Boolean) {
+        if (shouldNotRequestData(isScreenEmpty)) {
             return
         }
         _requestLiveData.value = UIState.Loading()
@@ -34,6 +36,6 @@ class BreedListViewModel(
         }
     }
 
-    private fun shouldNotRequestData(isScreenNotEmpty: Boolean) =
-        _requestLiveData.value is UIState.Loading || isScreenNotEmpty
+    private fun shouldNotRequestData(isScreenEmpty: Boolean) =
+        _requestLiveData.value is UIState.Loading || isScreenEmpty.not()
 }

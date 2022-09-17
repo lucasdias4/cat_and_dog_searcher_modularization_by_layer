@@ -48,7 +48,7 @@ class BreedListActivity : AppCompatActivity() {
         viewModel.getBreeds(
             breedName,
             animalType = UIAnimalType.valueOf(animalTypeName),
-            isScreenNotEmpty = adapter.currentList.isNotEmpty()
+            isScreenEmpty = adapter.currentList.isEmpty()
         )
     }
 

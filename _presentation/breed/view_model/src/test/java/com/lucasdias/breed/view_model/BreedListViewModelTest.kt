@@ -1,5 +1,6 @@
 package com.lucasdias.breed.view_model
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import com.lucasdias.android_core.ui_state.UIState
 import com.lucasdias.breed.view_model.model.UIBreed
@@ -16,18 +17,26 @@ import io.mockk.just
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestRule
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 
 @ExperimentalCoroutinesApi
+@RunWith(JUnit4::class)
 class BreedListViewModelTest {
-    private val getBreedByNameAndAnimalTypeUseCase: GetBreedByNameAndAnimalTypeUseCase = mockk()
     private val _requestLiveData: MutableLiveData<UIState<List<UIBreed>>> = mockk()
+    private val getBreedByNameAndAnimalTypeUseCase: GetBreedByNameAndAnimalTypeUseCase = mockk()
     private lateinit var breedListViewModel: BreedListViewModel
 
     @get:Rule
     val coroutinesTestRule = CoroutinesTestRule()
+
+    @get:Rule
+    val rule: TestRule = InstantTaskExecutorRule()
 
     @Before
     fun setUp() {
@@ -37,7 +46,7 @@ class BreedListViewModelTest {
     }
 
     @Test
-    fun `IF the app still waiting for a breed search call THEN do not make another call`() =
+    fun `IF the app still waiting for a breed search call and the screen is empty THEN do not make another call`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
             coEvery {
                 getBreedByNameAndAnimalTypeUseCase(name, domainAnimalType)
@@ -49,7 +58,7 @@ class BreedListViewModelTest {
                 breedListViewModel._requestLiveData.value = any()
             } just Runs
 
-            breedListViewModel.getBreeds(name, uiAnimalType)
+            breedListViewModel.getBreeds(name, uiAnimalType, true)
 
             coVerify(exactly = 0) {
                 getBreedByNameAndAnimalTypeUseCase(name, any())
@@ -57,7 +66,27 @@ class BreedListViewModelTest {
         }
 
     @Test
-    fun `IF the app is not waiting for a breed search call THEN set loading state, make a call and once this call return a success, set success state`() =
+    fun `IF the app still waiting for a breed search call and the screen is not empty THEN do not make another call`() =
+        coroutinesTestRule.testDispatcher.runBlockingTest {
+            coEvery {
+                getBreedByNameAndAnimalTypeUseCase(name, domainAnimalType)
+            } returns successState
+            coEvery {
+                breedListViewModel._requestLiveData.value
+            } returns UIState.Loading()
+            coEvery {
+                breedListViewModel._requestLiveData.value = any()
+            } just Runs
+
+            breedListViewModel.getBreeds(name, uiAnimalType, false)
+
+            coVerify(exactly = 0) {
+                getBreedByNameAndAnimalTypeUseCase(name, any())
+            }
+        }
+
+    @Test
+    fun `IF the app is not waiting for a breed search call and the screen is not empty THEN do not make another call`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
             coEvery {
                 getBreedByNameAndAnimalTypeUseCase(name, domainAnimalType)
@@ -69,7 +98,47 @@ class BreedListViewModelTest {
                 breedListViewModel._requestLiveData.value = any()
             } just Runs
 
-            breedListViewModel.getBreeds(name, uiAnimalType)
+            breedListViewModel.getBreeds(name, uiAnimalType, false)
+
+            coVerify(exactly = 0) {
+                getBreedByNameAndAnimalTypeUseCase(name, any())
+            }
+        }
+
+    @Test
+    fun `IF the app is not waiting for a breed search call and the screen is not empty  THEN set loading state, make a call and once this call return a success, set success state`() =
+        coroutinesTestRule.testDispatcher.runBlockingTest {
+            coEvery {
+                getBreedByNameAndAnimalTypeUseCase(name, domainAnimalType)
+            } returns successState
+            coEvery {
+                breedListViewModel._requestLiveData.value
+            } returns null
+            coEvery {
+                breedListViewModel._requestLiveData.value = any()
+            } just Runs
+
+            breedListViewModel.getBreeds(name, uiAnimalType, false)
+
+            coVerify(exactly = 0) {
+                getBreedByNameAndAnimalTypeUseCase(name, any())
+            }
+        }
+
+    @Test
+    fun `IF the app is not waiting for a breed search call and the screen is empty  THEN set loading state, make a call and once this call return a success, set success state`() =
+        coroutinesTestRule.testDispatcher.runBlockingTest {
+            coEvery {
+                getBreedByNameAndAnimalTypeUseCase(name, domainAnimalType)
+            } returns successState
+            coEvery {
+                breedListViewModel._requestLiveData.value
+            } returns null
+            coEvery {
+                breedListViewModel._requestLiveData.value = any()
+            } just Runs
+
+            breedListViewModel.getBreeds(name, uiAnimalType, true)
 
             coVerify {
                 breedListViewModel._requestLiveData.value = any<UIState.Loading<List<UIBreed>>>()
