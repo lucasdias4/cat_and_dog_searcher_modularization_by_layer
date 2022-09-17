@@ -7,6 +7,7 @@ import com.lucasdias.catanddogsearcher.di.appModule
 import com.lucasdias.data_source.di.apiDataSourceModule
 import com.lucasdias.domain.di.domainModule
 import com.lucasdias.repository.di.repositoryModule
+import com.lucasdias.view_model.di.searchViewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.GlobalContext.startKoin
@@ -31,7 +32,8 @@ class Application : Application() {
                     breedViewModule,
                     breedViewModelModule,
                     domainModule,
-                    repositoryModule
+                    repositoryModule,
+                    searchViewModelModule
                 )
             )
         }

@@ -1,6 +1,5 @@
 package com.lucasdias.breed.view_model
 
-import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,25 +11,29 @@ import com.lucasdias.breed.view_model.mapper.toUI
 import com.lucasdias.breed.view_model.model.UIBreed
 import com.lucasdias.common_model.UIAnimalType
 import com.lucasdias.domain.use_case.GetBreedByNameAndAnimalTypeUseCase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BreedListViewModel(
     private val getBreedByNameAndAnimalTypeUseCase: GetBreedByNameAndAnimalTypeUseCase
 ) : ViewModel() {
 
-    @VisibleForTesting internal var _requestLiveData: MutableLiveData<UIState<List<UIBreed>>> = MutableLiveData()
+    private var _requestLiveData: MutableLiveData<UIState<List<UIBreed>>> = MutableLiveData()
     val requestLiveData: LiveData<UIState<List<UIBreed>>> by lazy { _requestLiveData }
 
-    fun getBreeds(name: String, animalType: UIAnimalType) {
-        if (_requestLiveData.value is UIState.Loading) {
+    fun getBreeds(name: String, animalType: UIAnimalType, isScreenNotEmpty: Boolean) {
+        if (shouldNotRequestData(isScreenNotEmpty)) {
             return
         }
         _requestLiveData.value = UIState.Loading()
-        viewModelScope.launch {
-            val value = getBreedByNameAndAnimalTypeUseCase(name, animalType.toDomain()).mapToUIState {
+        viewModelScope.launch(Dispatchers.Main) {
+            val state = getBreedByNameAndAnimalTypeUseCase(name, animalType.toDomain()).mapToUIState {
                 UIState.Success(it.toUI())
             }
-            _requestLiveData.value = value
+            _requestLiveData.value = state
         }
     }
+
+    private fun shouldNotRequestData(isScreenNotEmpty: Boolean) =
+        _requestLiveData.value is UIState.Loading || isScreenNotEmpty
 }

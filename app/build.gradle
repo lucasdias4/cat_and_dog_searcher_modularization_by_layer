@@ -44,6 +44,7 @@ dependencies {
     implementation project(Dependency.Module.domain)
     implementation project(Dependency.Module.repository)
     implementation project(Dependency.Module.search_view)
+    implementation project(Dependency.Module.search_view_model)
     implementation Dependency.Core.kotlin_stdlib
     implementation Dependency.DI.koin
     implementation Dependency.UI.constraint_layout

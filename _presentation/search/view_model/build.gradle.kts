@@ -9,7 +9,7 @@ android {
     compileSdk = 32
 
     defaultConfig {
-        minSdk = 26
+        minSdk = 24
         targetSdk = 32
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -32,19 +32,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
-    implementation(project(Dependency.Module.android_core))
     implementation(project(Dependency.Module.presentation_common_model))
-    implementation(project(Dependency.Module.resource))
-    implementation(project(Dependency.Module.search_view_model))
-    implementation(Dependency.Core.core_ktx)
     implementation(Dependency.Core.appcompat)
     implementation(Dependency.DI.koin)
-    implementation(Dependency.UI.constraint_layout)
-    implementation(Dependency.UI.material)
+    testImplementation(Dependency.Test.junit)
+    testImplementation(Dependency.Test.kotlinx_coroutines_test)
+    testImplementation(Dependency.Test.mockk)
 }

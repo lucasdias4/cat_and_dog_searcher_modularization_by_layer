@@ -10,7 +10,7 @@ import com.lucasdias.breed.view.databinding.BreedListItemBinding
 import com.lucasdias.breed.view_model.model.UIBreed
 
 class BreedListAdapter(private val navigate: (UIBreed) -> Unit) :
-    ListAdapter<UIBreed, BreedListAdapter.ViewHolder>(ComicSummaryListDiffUtil) {
+    ListAdapter<UIBreed, BreedListAdapter.ViewHolder>(BreedListDiffUtil) {
 
     fun update(breedList: List<UIBreed>) {
         submitList(breedList)
@@ -43,7 +43,7 @@ class BreedListAdapter(private val navigate: (UIBreed) -> Unit) :
         }
     }
 
-    private companion object ComicSummaryListDiffUtil : DiffUtil.ItemCallback<UIBreed>() {
+    private companion object BreedListDiffUtil : DiffUtil.ItemCallback<UIBreed>() {
         override fun areItemsTheSame(
             oldItem: UIBreed,
             newItem: UIBreed
@@ -55,13 +55,7 @@ class BreedListAdapter(private val navigate: (UIBreed) -> Unit) :
             oldItem: UIBreed,
             newItem: UIBreed
         ): Boolean {
-            return oldItem.id == newItem.id &&
-                oldItem.name == newItem.name &&
-                oldItem.imageUrl == newItem.imageUrl &&
-                oldItem.lifetime == newItem.lifetime &&
-                oldItem.temperament == newItem.temperament &&
-                oldItem.wikipediaUrl == newItem.wikipediaUrl &&
-                oldItem.energyLevel == oldItem.energyLevel
+            return oldItem == newItem
         }
     }
 }

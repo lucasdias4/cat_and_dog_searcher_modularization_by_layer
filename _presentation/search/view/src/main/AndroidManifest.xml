@@ -4,7 +4,8 @@
     <application>
         <activity
             android:name=".SearchActivity"
+            android:exported="true"
             android:theme="@style/Theme.CatAndDog"
-            android:exported="true"/>
+            android:windowSoftInputMode="stateVisible|adjustResize" />
     </application>
 </manifest>

@@ -69,6 +69,8 @@ object Dependency {
         const val resource = ":_library:resource"
 
         const val search_view = ":_presentation:search:view"
+
+        const val search_view_model = ":_presentation:search:view_model"
     }
 
     object Tool {

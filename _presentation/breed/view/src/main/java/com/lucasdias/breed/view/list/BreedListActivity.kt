@@ -45,9 +45,11 @@ class BreedListActivity : AppCompatActivity() {
     }
 
     private fun getBreeds() {
-        if (adapter.currentList.isEmpty()) {
-            viewModel.getBreeds(breedName, animalType = UIAnimalType.valueOf(animalTypeName))
-        }
+        viewModel.getBreeds(
+            breedName,
+            animalType = UIAnimalType.valueOf(animalTypeName),
+            isScreenNotEmpty = adapter.currentList.isNotEmpty()
+        )
     }
 
     private fun setUpRecyclerView() = with(binding.recyclerView) {
