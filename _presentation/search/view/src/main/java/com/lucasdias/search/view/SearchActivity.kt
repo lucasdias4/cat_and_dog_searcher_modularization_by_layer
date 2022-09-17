@@ -6,9 +6,9 @@ import com.lucasdias.android_core.extension.animateGoneToVisible
 import com.lucasdias.android_core.extension.animateVisibleToGone
 import com.lucasdias.android_core.extension.hideKeyBoard
 import com.lucasdias.android_core.extension.onImeActionDone
-import com.lucasdias.android_core.extension.setUp
 import com.lucasdias.android_core.extension.setDefaultState
 import com.lucasdias.android_core.extension.setErrorState
+import com.lucasdias.android_core.extension.setUp
 import com.lucasdias.android_core.navigator.Navigator
 import com.lucasdias.common_model.UIAnimalType
 import com.lucasdias.common_model.UIAnimalType.CAT
