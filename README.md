@@ -14,6 +14,7 @@ This application has as main objective to consult the list of cat and dog breeds
 - Kotlin;
 - MVVM;
 - Clean Architecture;
+- Modularization by layer;
 - Coroutines;
 - Koin;
 - MockK;
@@ -48,16 +49,10 @@ Below is the representation of the main modules of the application:
 * presentation:common_model module is only used for models that need to be shared between features. Feature-specific models must live within the specific feature.
 
 ## Unit test
-* [unit test 1](https://github.com/lucasdias4/cat_and_dog_searcher/blob/master/_presentation/breed/view_model/src/test/java/com/lucasdias/breed/view_model/BreedListViewModelTest.kt)
-* [unit test 2](https://github.com/lucasdias4/cat_and_dog_searcher/blob/master/_domain/domain/src/test/java/com/lucasdias/domain/use_case/GetBreedByNameAndAnimalTypeUseCaseTest.kt)
-
-
-Some unit tests from another project I made:
-* [unit test 1](https://github.com/lucasdias4/marvel/blob/master/_presentation/profile/view_model/src/test/java/com/lucasdias/profile/view_model/ProfileViewModelTest.kt)
-* [unit test 2](https://github.com/lucasdias4/marvel/blob/master/_domain/domain/src/test/java/com/lucasdias/domain/GetPreferencesVariableUseCaseTest.kt)
-* [unit test 3]( https://github.com/lucasdias4/marvel/blob/master/_data/repository/src/test/java/com/lucasdias/repository/PreferencesRepositoryImplTest.kt)
+* [unit test 1](https://github.com/lucasdias4/cat_and_dog_searcher_modularization_by_layer/blob/master/_presentation/breed/view_model/src/test/java/com/lucasdias/breed/view_model/BreedListViewModelTest.kt)
+* [unit test 2](https://github.com/lucasdias4/cat_and_dog_searcher_modularization_by_layer/blob/master/_domain/domain/src/test/java/com/lucasdias/domain/use_case/GetBreedByNameAndAnimalTypeUseCaseTest.kt)
 
 ## Continuous Integration
 Every time some code is merged into the master or develop branches, the unit tests, ktlint and lint tasks are executed in order to validate the code's quality.
 
-For this the app makes use of Github Actions. In this [link](https://github.com/lucasdias4/cat_and_dog_searcher/actions) you can check the jobs that were executed.
+For this the app makes use of Github Actions. In this [link](https://github.com/lucasdias4/cat_and_dog_searcher_modularization_by_layer/actions) you can check the jobs that were executed.
